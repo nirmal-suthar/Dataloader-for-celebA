@@ -6,7 +6,8 @@ if [ $FILE == "celeba" ]; then
     URL=https://drive.google.com/file/d/0B7EVK8r0v71pZjFTYXZWM3FlRnM/view?usp=sharing
     ZIP_FILE=./data/celeba.zip
     mkdir -p ./data/
-    wget -N $URL -O $ZIP_FILE
+    python3 download_gdrive.py 0B7EVK8r0v71pZjFTYXZWM3FlRnM $ZIP_FILE
+    # wget -N $URL -O $ZIP_FILE
     unzip $ZIP_FILE -d ./data/
     rm $ZIP_FILE
 
