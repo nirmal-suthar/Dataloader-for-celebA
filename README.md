@@ -1,12 +1,12 @@
 ### download.sh
 
-downloads the celebA dataset from the drive link as zip file (1.4GB)
-extracts them and delete the original zip file
+downloads the celebA dataset from the drive link as zip file (1.4GB), extracts them and deletes the original zip file
+google-drive link: https://drive.google.com/drive/folders/0B7EVK8r0v71pWEZsZE9oNnFzTm8
 
 requires
 
 1) requests
-2) tq
+2) tqdm
 
 for running script
 
@@ -21,7 +21,7 @@ get_loader function
 
 args
 
-1) image_dir (as specified in download.sh)
+1) image_dir (as specified by download.sh)
 2) resize_size (for preprocessing image)
 3) batch_size
 4) dataset (default: celebA)
