@@ -1,7 +1,7 @@
 ### download.sh
 
 downloads the celebA dataset from the drive link as zip file (1.4GB), extracts them and deletes the original zip file
-google-drive link: https://drive.google.com/drive/folders/0B7EVK8r0v71pWEZsZE9oNnFzTm8
+<br>google-drive link: https://drive.google.com/drive/folders/0B7EVK8r0v71pWEZsZE9oNnFzTm8
 
 requires
 
