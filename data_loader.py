@@ -1,16 +1,12 @@
 from torch.utils import data
-from torchvision import transforms as T
+from torchvision import transforms
 from torchvision.datasets import ImageFolder
-from PIL import Image
-import torch
 import os
-import random
-
 
 class CelebA(data.Dataset):
     """Dataset class for the CelebA dataset."""
 
-    def __init__(self, image_dir, attr_path, selected_attrs, resize_size, transform):
+    def __init__(self, image_dir, resize_size, transform):
         """Initialize and preprocess the CelebA dataset."""
         self.image_dir = image_dir
         self.attr_path = attr_path
@@ -60,8 +56,8 @@ class CelebA(data.Dataset):
         return None
 
 
-def get_loader(image_dir, attr_path, selected_attrs, image_size=64,
-               batch_size=128, dataset='CelebA', mode='train', num_workers=1):
+def get_loader(image_dir, resize_size,
+               batch_size=128, dataset='CelebA', num_workers=1):
     """Build and return a data loader."""
     transform = []
     if mode == 'train':
@@ -72,13 +68,13 @@ def get_loader(image_dir, attr_path, selected_attrs, image_size=64,
 
 
     if dataset == 'CelebA':
-        dataset = CelebA(image_dir, attr_path, selected_attrs, resize_size, transform)
+        dataset = CelebA(image_dir, resize_size, transform)
     else:
         print('specified dataset not present')
         return None
 
     data_loader = data.DataLoader(dataset=dataset,
                                   batch_size=batch_size,
-                                  shuffle=(mode=='train'),
+                                  shuffle=True,
                                   num_workers=num_workers)
     return data_loader
